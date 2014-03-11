@@ -141,3 +141,7 @@ label {
 		padding: 0 5px;
 		border-radius: 3px;
 	}
+
+canvas {
+	display: none;
+}

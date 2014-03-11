@@ -1,6 +1,38 @@
+// ============
+// VARIABLES
+// ============
+
 var templates = {
-	option : "<option value='{0}'>{0}</option>",
-	message : "Vous avez <span>{0}%</span> de chance d'arriver à l'heure !!"
+		option : "<option value='{0}'>{0}</option>",
+		message : "Vous avez <span>{0}%</span> de chance d'arriver à l'heure !!"
+	},
+	canvas = document.getElementsByTagName('canvas')[0],
+	ctx = canvas.getContext('2d');
+
+canvas.width = canvas.height = 16;
+
+
+
+// ============
+// HELPERS
+// ============
+
+function $(expr) { return document.querySelector(expr); }
+
+// Browser sniffing
+var ua = (function(){
+	var agent = navigator.userAgent.toLowerCase();
+	return function(browser){
+		return agent.indexOf(browser) !== -1;
+	};
+}());
+
+var browser = {
+	ie: ua('msie'),
+	chrome: ua('chrome'),
+	webkit: ua('chrome') || ua('safari'),
+	safari: ua('safari') && !ua('chrome'),
+	mozilla: ua('mozilla') && !ua('chrome') && !ua('safari')
 };
 
 String.prototype.format = function(){
@@ -17,6 +49,12 @@ Array.prototype.has = function(v) {
 	}
 	return false;
 };
+
+
+
+// ============
+// FUNCTIONS
+// ============
 
 function getDeparts() {
 	var departs = new Array;
@@ -58,9 +96,41 @@ function setProgress(){
 			var percent = 100 - ((data[prop][3]*100) / data[prop][2]);
 			indicator.style.width = percent + "%";
 			result.innerHTML = templates.message.format(Math.round(percent));
+			drawFavicon(Math.round(percent));
 		}
 	}
 }
+
+function drawFavicon(n){
+
+	ctx.clearRect(0, 0, 16, 16);
+
+	ctx.fillStyle = "#801F66";
+	ctx.fillRect(0, 0, 16, 16);
+
+	ctx.fillStyle = "#fff";
+	ctx.font = "6pt Arial";
+	ctx.fillText(n, 4, 11);
+
+	if (browser.chrome){
+		$('[rel="shortcut icon"]').setAttribute("href", canvas.toDataURL());
+	} else {
+		var link = d.createElement('link'),
+			oldLink = $('[rel="shortcut icon"]');
+		link.type = "image/png";
+		link.rel = "shortcut icon";
+		link.href = canvas.toDataURL();
+		if (oldLink) {
+			d.head.removeChild(oldLink);
+		}
+		d.head.appendChild(link);
+	}
+}
+
+
+// ==================
+// RUN YOU CLEVER BOY
+// ==================
 
 depart.innerHTML = createList(getDeparts());
 arrivee.innerHTML = createList(getArrivees(depart.value));
