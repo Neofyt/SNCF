@@ -31,9 +31,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 body {
-	color: #333;
-	font-family:'Roboto Slab';
-	font-weight:300;
+	color: #666;
+	/*font-family:'Roboto Slab';
+	font-weight:300;*/
+	font-family: 'open sans';
+	font-weight: 300;
 	font-size: 12px;
 }
 
@@ -53,7 +55,6 @@ h1 {
 	margin-bottom: 150px;
 	font-weight: 300;
 	font-size: 50px;
-	color: #666;
 }
 
 #wrapper {
@@ -87,9 +88,11 @@ select {
 	border-radius: 5px;
 	background: hsla(0,0%,90%,.9);
 	text-shadow: 0 .05em 1px white;
-	font-family: 'Roboto Slab';
-	font-size: 24px;
+	/*font-family:'Roboto Slab';
+	font-weight:300;*/
+	font-family: 'open sans';
 	font-weight: 300;
+	font-size: 24px;
 	box-shadow: .05em .1em .2em rgba(0,0,0,.4) inset;
 	margin-top: 2px;
 	color: #333;
@@ -144,4 +147,28 @@ label {
 
 canvas {
 	display: none;
+}
+
+#infos {
+	width: 980px;
+	margin: 130px auto 0;
+	border-left: solid 15px #801F66;
+	padding-left: 15px;
+	position: relative;
+	line-height: 22px;
+	font-size: 14px;
+	opacity: .6;
+}
+
+#infos:before {
+	content: "?";
+	position: absolute;
+	left: -12px;
+	top: 5px;
+	font-size: 20px;
+	color: #fafafa;
+}
+
+#infos:hover {
+	opacity: 1;
 }
