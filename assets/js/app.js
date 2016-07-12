@@ -7,7 +7,8 @@ var templates = {
 		message : "Vous avez <span>{0}%</span> de chance d'arriver à l'heure !!"
 	},
 	canvas = document.getElementsByTagName('canvas')[0],
-	ctx = canvas.getContext('2d');
+	ctx = canvas.getContext('2d'),
+	data = tgv;
 
 canvas.width = canvas.height = 16;
 
@@ -93,7 +94,7 @@ function populateArrivee(){
 function setProgress(){
 	for (var prop in data) {
 		if(data[prop][0] == depart.value.toUpperCase() && data[prop][1] == arrivee.value.toUpperCase()){
-			var percent = 100 - ((data[prop][3]*100) / data[prop][2]);
+			var percent = data[prop][2];
 			indicator.style.width = percent + "%";
 			result.innerHTML = templates.message.format(Math.round(percent));
 			drawFavicon(Math.round(percent));
