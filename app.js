@@ -2,13 +2,14 @@
 // VARIABLES
 // ============
 
-var templates = {
+var trainTypes = ["TGV","Intercites"];/*,"Transilien","TER"];*/
+	templates = {
 		option : "<option value='{0}'>{0}</option>",
 		message : "Vous avez <span>{0}%</span> de chance d'arriver à l'heure !!"
 	},
 	canvas = document.getElementsByTagName('canvas')[0],
 	ctx = canvas.getContext('2d'),
-	data = tgv;
+	data = train.value.toLowerCase();
 
 canvas.width = canvas.height = 16;
 
@@ -58,9 +59,13 @@ Array.prototype.has = function(v) {
 // ============
 
 function setTrains() {
-	train.innerHTML = createList(["TGV","Intercités","Transilien","TER"]);
+	train.innerHTML = createList(trainTypes);
 };
 
+function changeTrainType(){
+	data = train.value.toLowerCase();
+	init();
+}
 
 function getDeparts() {
 	var departs = new Array;
@@ -133,12 +138,16 @@ function drawFavicon(n){
 	}
 }
 
+function init(){
+	depart.innerHTML = createList(getDeparts());
+	arrivee.innerHTML = createList(getArrivees(depart.value));
+	setProgress();
+}
+
 
 // ==================
 // RUN YOU CLEVER BOY
 // ==================
 
 setTrains();
-depart.innerHTML = createList(getDeparts());
-arrivee.innerHTML = createList(getArrivees(depart.value));
-setProgress();
+init();
