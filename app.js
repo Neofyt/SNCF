@@ -63,7 +63,7 @@ function setTrains() {
 };
 
 function changeTrainType(){
-	data = train.value.toLowerCase();
+	data = donnees[train.value.toLowerCase()];
 	init();
 }
 
@@ -139,6 +139,7 @@ function drawFavicon(n){
 }
 
 function init(){
+	data = donnees[train.value.toLowerCase()];
 	depart.innerHTML = createList(getDeparts());
 	arrivee.innerHTML = createList(getArrivees(depart.value));
 	setProgress();
