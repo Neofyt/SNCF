@@ -119,6 +119,12 @@ label {
 	margin-right: 15px;
 }
 
+#train {
+	display: inline;
+	width: auto;
+	font-size: 30px;
+}
+
 #progress {
 	width: 100%;
 	height: 30px;
