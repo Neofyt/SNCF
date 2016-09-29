@@ -62,9 +62,18 @@ function setTrains() {
 	train.innerHTML = createList(trainTypes);
 };
 
-function changeTrainType(){
+function changeTrainType(oldCity){
 	data = donnees[train.value.toLowerCase()];
-	init();
+	depart.innerHTML = createList(getDeparts());
+	
+	for (i = 0; i < depart.length; ++i){
+		if(depart.options[i].value == oldCity){
+			depart.value = oldCity;
+		}
+	}
+	
+	arrivee.innerHTML = createList(getArrivees(depart.value));
+	setProgress();
 }
 
 function getDeparts() {
