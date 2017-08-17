@@ -32,8 +32,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 body {
 	color: #666;
-	/*font-family:'Roboto Slab';
-	font-weight:300;*/
 	font-family: 'open sans';
 	font-weight: 300;
 	font-size: 12px;
@@ -54,7 +52,19 @@ h1 {
 	text-align: center;
 	margin-bottom: 150px;
 	font-weight: 300;
-	font-size: 50px;
+	font-size: 40px;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.font-violet { 
+	color: #801F66;
+} 
+
+.font-not-italic {
+	font-style: normal;
 }
 
 #wrapper {
@@ -63,20 +73,28 @@ h1 {
 }
 
 section {
-	width: 45%;
+	width: 30%;
 	float: left;
 	border-radius: 5px;
 }
 
-section:nth-child(3){
+section:nth-child(4){
 	margin-left: 10%;
 	text-align: right
 }
 
-section:nth-child(3) select {
+section:nth-child(4) select {
 	float: right;
 	text-align: right;
 }
+
+	.large {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 150px;
+		font-weight: 300;
+		font-size: 50px;
+	}
 
 select {
 	position: relative;
@@ -88,14 +106,13 @@ select {
 	border-radius: 5px;
 	background: hsla(0,0%,90%,.9);
 	text-shadow: 0 .05em 1px white;
-	/*font-family:'Roboto Slab';
-	font-weight:300;*/
 	font-family: 'open sans';
 	font-weight: 300;
 	font-size: 24px;
 	box-shadow: .05em .1em .2em rgba(0,0,0,.4) inset;
 	margin-top: 2px;
 	color: #333;
+	cursor: pointer; 
 }
 
 :focus {
@@ -109,10 +126,19 @@ label {
 	font-size: 18px;
 }
 
+	.pickone {
+		background : orange;
+		/*display: inline;
+		width: 20px;
+		font-size: 10px;
+		border-radius: 3px 0 0 3px;*/
+	}
+
 .depart {
 	background: #801F66;
 	margin-left: 15px;
 }
+
 
 .arrivee {
 	background: #DA011E;
@@ -125,30 +151,70 @@ label {
 	font-size: 30px;
 }
 
+
+	#train:before {
+		content : "test";
+		background : red;
+		height : 50px;
+		width: 100px;
+		
+	}
+
+button {
+	padding : 3px 5px;
+	border: 0;
+	border-radius: 3px;
+	background: #801F66;
+	color : #fff;
+	display: block;
+	margin: 30px 50% 20px;
+	width: 100px;
+	box-shadow: red 5px 5px 0px;
+}
+
+	button:hover {
+		cursor: pointer;   
+		background: red;
+		box-shadow: #801F66 5px 5px 0px;
+	}
+	
+
 #progress {
 	width: 100%;
 	height: 30px;
 	background: #bbb;
-	margin-top: 300px;
+	margin-top: 350px;
+	border-radius : 3px;
 }
 
 #indicator {
 	height: 100%;
 	width: 0;
 	background: #801F66;
+	border-radius : 3px;
 }
 
 #result {
-	padding-top: 60px;
+	padding-top: 80px;
 	text-align: center;
-	font-size: 30px;
+	font-size: 40px;
 	width: 100%;
 }
 	#result span {
+
+		
+	}
+	
+	.violet {
 		background: #801F66;
 		color: #fff;
 		padding: 0 5px;
 		border-radius: 3px;
+	}
+	
+	.smaller {
+		font-size: 18px;
+		margin-top: 50px;
 	}
 
 canvas {
@@ -166,15 +232,15 @@ canvas {
 	opacity: .6;
 }
 
-#infos:before {
-	content: "?";
-	position: absolute;
-	left: -12px;
-	top: 5px;
-	font-size: 20px;
-	color: #fafafa;
-}
+	#infos:before {
+		content: "?";
+		position: absolute;
+		left: -12px;
+		top: 5px;
+		font-size: 20px;
+		color: #fafafa;
+	}
 
-#infos:hover {
-	opacity: 1;
-}
+	#infos:hover {
+		opacity: 1;
+	}

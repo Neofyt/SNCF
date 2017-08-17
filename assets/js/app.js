@@ -2,10 +2,10 @@
 // VARIABLES
 // ============
 
-var trainTypes = ["TGV","Intercites"];/*,"Transilien","TER"];*/
+var trainTypes = ["TGV"]/*,"Intercites"];/*,"Transilien","TER"];*/
 	templates = {
 		option : "<option value='{0}'>{0}</option>",
-		message : "Vous avez <span>{0}%</span> de chance d'arriver à l'heure !!"
+		message : "Vous avez <span class='violet'>{0}%</span><span class='font-violet'>*</span> de chance d'arriver à l'heure !!<br /> <span class='smaller italic'><span class='font-violet'>*</span> Donn&eacute;es calcul&eacute;es sur les <span class='violet font-not-italic'>{1}</span> trains ayant circul&eacute;s sur ce trajet.</span>"
 	},
 	canvas = document.getElementsByTagName('canvas')[0],
 	ctx = canvas.getContext('2d'),
@@ -112,13 +112,37 @@ function populateArrivee(){
 
 function setProgress(){
 	for (var prop in data) {
-		if(data[prop][0] == depart.value.toUpperCase() && data[prop][1] == arrivee.value.toUpperCase()){
-			var percent = data[prop][2];
+		dep = depart.value.toUpperCase();
+		ari = arrivee.value.toUpperCase();
+		
+		if(data[prop][0] == dep && data[prop][1] == ari){
+			var percent = data[prop][3],
+				total = data[prop][2];
 			indicator.style.width = percent + "%";
-			result.innerHTML = templates.message.format(Math.round(percent));
+			result.innerHTML = templates.message.format(Math.round(percent), total);
 			drawFavicon(Math.round(percent));
 		}
 	}
+}
+
+function setReturn(departure, arrival){
+	
+	data = donnees[train.value.toLowerCase()];
+
+	for (i = 0; i < depart.length; ++i){
+		if(depart.options[i].value == departure){
+			depart.value = departure;
+		}
+	}
+
+	arrivee.innerHTML = createList(getArrivees(depart.value));
+	
+	for (i = 0; i < arrivee.length; ++i){
+		if(arrivee.options[i].value == arrival){
+			arrivee.value = arrival;
+		}
+	}
+	setProgress();
 }
 
 function drawFavicon(n){

@@ -3,8 +3,8 @@
 	<head>
 		<title>Mon TGV sera-t-il &agrave; l'heure ??</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:300"/>
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300"/>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" />
 
 		<link rel="stylesheet" href="assets/css/style.css" />
 		<link rel="shortcut icon" href="favicon.ico" />
@@ -15,12 +15,16 @@
 			<h1>Mon <select id="train" placeholder="TGV" onchange="changeTrainType(depart.value);"></select> sera-t-il &agrave; l'heure ??</h1>
 
 			<section class="clearfix">
-				<label class="depart">Ville de départ</label>
+				<label class="depart">Ville de d&eacute;part</label>
 				<select id="depart" placeholder="Bordeaux" onchange="populateArrivee(); setProgress();"></select>
 			</section>
 			
+				<section class="clearfix">
+				<button onclick="setReturn(arrivee.value, depart.value);">Voir le trajet retour</button>
+			</section>
+			
 			<section class="clearfix">
-				<label class="arrivee">Ville d'arrivée</label>
+				<label class="arrivee">Ville d'arriv&eacute;e</label>
 				<select id="arrivee" placeholder="Paris Montparnasse" onchange="setProgress();"></select>
 			</section>
 			
@@ -31,13 +35,13 @@
 			<p id="result"></p>
 
 			<p id="infos">
-				Est considéré comme en retard :<br />
-				- un train arrivant 5 minutes après l'heure prévue pour un trajet de moins de 1h30.<br />
-				- un train affichant plus de 10 minutes de retard pour un trajet d'une durée de 1h30 à 3 heures.<br />
-				- un train enregistrant un retard de plus de 15 minutes au delà de 3 heures de voyage.<br />
+				Est consid&eacute;r&eacute; comme en retard :<br />
+				- un train arrivant 5 minutes apr&egrave;s l'heure pr&eacute;vue pour un trajet de moins de 1h30.<br />
+				- un train affichant plus de 10 minutes de retard pour un trajet d'une dur&eacute;e de 1h30 à 3 heures.<br />
+				- un train enregistrant un retard de plus de 15 minutes au del&agrave; de 3 heures de voyage.<br />
 				<br />
 				Donn&eacute;es issues de <a href="https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-tgv/information/">https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-tgv/information/</a><br />
-				Dernière mise à jour: 12 Juillet 2016
+				Derni&egrave;re mise à jour: 11 Août 2017
 			</p>
 		</div>
 
