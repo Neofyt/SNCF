@@ -63,6 +63,10 @@ h1 {
 	color: #801F66;
 } 
 
+.font-rouge { 
+	color: red;
+} 
+
 .font-not-italic {
 	font-style: normal;
 }
@@ -128,10 +132,13 @@ label {
 
 	.pickone {
 		background : orange;
-		/*display: inline;
 		width: 20px;
 		font-size: 10px;
-		border-radius: 3px 0 0 3px;*/
+		border-radius: 0 3px 3px 0;
+		padding: 21px 5px 20px;
+		/*margin-bottom : 20px;
+		line-height: 30px;*/
+		vertical-align: middle;
 	}
 
 .depart {
@@ -149,16 +156,8 @@ label {
 	display: inline;
 	width: auto;
 	font-size: 30px;
+	border-radius: 3px 0 0 3px;
 }
-
-
-	#train:before {
-		content : "test";
-		background : red;
-		height : 50px;
-		width: 100px;
-		
-	}
 
 button {
 	padding : 3px 5px;
@@ -224,8 +223,10 @@ canvas {
 #infos {
 	width: 980px;
 	margin: 130px auto 0;
-	border-left: solid 15px #801F66;
-	padding-left: 15px;
+	border: solid 1px #801F66;
+	border-left: solid 20px #801F66;
+	border-radius: 3px;
+	padding: 10px;
 	position: relative;
 	line-height: 22px;
 	font-size: 14px;
@@ -235,12 +236,22 @@ canvas {
 	#infos:before {
 		content: "?";
 		position: absolute;
-		left: -12px;
+		left: -14px;
 		top: 5px;
 		font-size: 20px;
 		color: #fafafa;
+		font-weight: bold;
 	}
 
 	#infos:hover {
 		opacity: 1;
 	}
+	
+	
+sup {
+	font-size: 10px;
+	padding: 2px 3px;
+	border-radius: 3px;
+	background: lightseagreen;
+	color: #fff;
+}

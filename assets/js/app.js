@@ -2,10 +2,10 @@
 // VARIABLES
 // ============
 
-var trainTypes = ["TGV"]/*,"Intercites"];/*,"Transilien","TER"];*/
+var trainTypes = ["TGV","Intercites"];/*,"Transilien","TER"];*/
 	templates = {
 		option : "<option value='{0}'>{0}</option>",
-		message : "Vous avez <span class='violet'>{0}%</span><span class='font-violet'>*</span> de chance d'arriver à l'heure !!<br /> <span class='smaller italic'><span class='font-violet'>*</span> Donn&eacute;es calcul&eacute;es sur les <span class='violet font-not-italic'>{1}</span> trains ayant circul&eacute;s sur ce trajet.</span>"
+		message : "Vous avez <span class='violet'>{0}%</span><span class='font-rouge'>*</span> de chance d'arriver à l'heure !!<br /> <span class='smaller italic'><span class='font-rouge'>*</span> Donn&eacute;es calcul&eacute;es sur les <span class='violet font-not-italic'>{1}</span> trains ayant circul&eacute;s sur ce trajet.</span>"
 	},
 	canvas = document.getElementsByTagName('canvas')[0],
 	ctx = canvas.getContext('2d'),

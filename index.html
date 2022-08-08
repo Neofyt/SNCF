@@ -3,7 +3,6 @@
 	<head>
 		<title>Mon TGV sera-t-il &agrave; l'heure ??</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300"/>
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" />
 
 		<link rel="stylesheet" href="assets/css/style.css" />
@@ -12,14 +11,14 @@
 	<body>
 
 		<div id="wrapper" class="clearfix">
-			<h1>Mon <select id="train" placeholder="TGV" onchange="changeTrainType(depart.value);"></select> sera-t-il &agrave; l'heure ??</h1>
+			<h1>Mon <select id="train" placeholder="TGV" onchange="changeTrainType(depart.value);"></select><!--<label class="pickone">Pick one</label>--> sera-t-il &agrave; l'heure ??</h1>
 
 			<section class="clearfix">
 				<label class="depart">Ville de d&eacute;part</label>
 				<select id="depart" placeholder="Bordeaux" onchange="populateArrivee(); setProgress();"></select>
 			</section>
 			
-				<section class="clearfix">
+			<section class="clearfix">
 				<button onclick="setReturn(arrivee.value, depart.value);">Voir le trajet retour</button>
 			</section>
 			
@@ -36,12 +35,18 @@
 
 			<p id="infos">
 				Est consid&eacute;r&eacute; comme en retard :<br />
-				- un train arrivant 5 minutes apr&egrave;s l'heure pr&eacute;vue pour un trajet de moins de 1h30.<br />
-				- un train affichant plus de 10 minutes de retard pour un trajet d'une dur&eacute;e de 1h30 à 3 heures.<br />
-				- un train enregistrant un retard de plus de 15 minutes au del&agrave; de 3 heures de voyage.<br />
+				- un train arrivant plus de &nbsp;&nbsp;5 minutes apr&egrave;s l'heure pr&eacute;vue pour un trajet d'une durée de moins de 1h30.<br />
+				- un train arrivant plus de 10 minutes apr&egrave;s l'heure pr&eacute;vue pour un trajet d'une dur&eacute;e comprise entre 1h30 et 3h.<br />
+				- un train arrivant plus de 15 minutes apr&egrave;s l'heure pr&eacute;vue pour un trajet d'une durée de plus de 3h.<br />
 				<br />
-				Donn&eacute;es issues de <a href="https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-tgv/information/">https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-tgv/information/</a><br />
-				Derni&egrave;re mise à jour: 11 Août 2017
+				Sources des donn&eacute;es :
+				<br />
+				- Liaisons Intercit&eacute;s : <a target="_blank" href="https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-intercites/information/">https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-intercites/information/</a> <sup>Dernière mise à jour : 21/07/2022</sup><br />
+				- Liaisons TGV : <a target="_blank" href="https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-tgv-aqst/information/">https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-tgv-aqst/information/</a> <sup>Dernière mise à jour : 21/04/2022</sup>
+				
+				<br />
+				<br />
+				
 			</p>
 		</div>
 
@@ -49,7 +54,7 @@
 
 		<canvas></canvas>
 
-		<script src="data/donnees.json"></script>
+		<script src="data/donnees.js"></script>
 		<script src="assets/js/app.js"></script>
 
 	</body>
